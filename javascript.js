@@ -23,17 +23,38 @@ function playRound(playerSelection, computerSelection) {
     // check for all other potential cases
 
     if (playerSelection =="rock" && computerSelection == "rock"){
-        //console.log("Tie! Try again!");
-        return "Tie! Try again!"
+        let result = "Tie";
+        return result
     } else if (playerSelection =="rock" && computerSelection == "scissors"){
-        //console.log("You win! Rock beats scissors.");
-        return "You win! Rock beats scissors."
+        return result = "Win";
     } else if (playerSelection == "rock" && computerSelection == "paper") {
-        //console.log("You lose! Paper beats rock.")
-        return "You lose! Paper beats rock."
+        return result = "Lose";
     }
   }
+
+  function game() {
+    for (let i = 0; i < 5; i++) {
+        // your code here!
+
+        const playerSelection = window.prompt("Enter rock, paper, or scissors");
+        const computerSelection = getComputerChoice();
+        result = playRound(playerSelection, computerSelection);
+
+        switch (result){
+            case "Tie":
+                console.log("Tie, try again");
+                break;
+            case "Win":
+                console.log(`Win, ${playerSelection} beats ${computerSelection}`);
+                break;
+            case "Lose":
+                console.log(`Lose, ${playerSelection} loses to ${computerSelection}`);
+                break;
+        }
+
+     }
+  }
    
-  const playerSelection = "rock";
-  const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
+
+
+game();
