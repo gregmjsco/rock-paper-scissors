@@ -23,16 +23,29 @@ function playRound(playerSelection, computerSelection) {
     // check for all other potential cases
 
     if (playerSelection =="rock" && computerSelection == "rock"){
-        let result = "Tie";
-        return result
+        return result = "Tie";
     } else if (playerSelection =="rock" && computerSelection == "scissors"){
         return result = "Win";
     } else if (playerSelection == "rock" && computerSelection == "paper") {
         return result = "Lose";
+    } else if (playerSelection == "paper" && computerSelection == "paper") {
+        return result = "Tie";
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
+        return result = "Win";
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        return result = "Lose";
+    } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+        return result = "Tie";
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return result = "Win";
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        return result = "Lose";
     }
-  }
+}
 
   function game() {
+    let playerScore = 0;
+    let computerScore = 0;
     for (let i = 0; i < 5; i++) {
         // your code here!
 
@@ -42,16 +55,29 @@ function playRound(playerSelection, computerSelection) {
 
         switch (result){
             case "Tie":
-                console.log("Tie, try again");
+                console.log(`You chose ${playerSelection} and the computer chose ${computerSelection}. Tie, try again`);
+                console.log(`Current score is player: ${playerScore} and computer: ${computerScore}`)
                 break;
             case "Win":
-                console.log(`Win, ${playerSelection} beats ${computerSelection}`);
+                console.log(`You chose ${playerSelection} and the computer chose ${computerSelection}. Win, ${playerSelection} beats ${computerSelection}`);
+                playerScore = playerScore + 1;
+                console.log(`Current score is player: ${playerScore} and computer: ${computerScore}`)
                 break;
             case "Lose":
-                console.log(`Lose, ${playerSelection} loses to ${computerSelection}`);
+                console.log(`You chose ${playerSelection} and the computer chose ${computerSelection}. Lose, ${playerSelection} loses to ${computerSelection}`);
+                computerScore = computerScore + 1;
+                console.log(`Current score is player: ${playerScore} and computer: ${computerScore}`)
                 break;
         }
 
+     }
+
+     if (playerScore > computerScore){
+        console.log("You won the set");
+     } else if (playerScore < computerScore){
+        console.log("You lost the set")
+     } else {
+        console.log("Set was tied");
      }
   }
    
