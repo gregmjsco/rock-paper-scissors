@@ -1,3 +1,6 @@
+const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+
 function random(number) {
     return Math.floor(Math.random()*number);
   }
@@ -6,15 +9,45 @@ function random(number) {
 function getComputerChoice() {
      let choice = random(3);
     if (choice == 0) {
-        return "rock"
+        return "Rock"
     } else if (choice == 1) {
-        return "paper"
+        return "Paper"
     } else {
-        return "scissors"
+        return "Scissors"
     }
 }
 
+function getPlayerChoice(){
+    return prompt("Enter your choice for RPS. Rock / Paper / Scissors", 'Rock')
+}
 
+console.log(getComputerChoice());
+console.log(getPlayerChoice());
+playRound(playerSelection, computerSelection);
+
+function playRound(playerSelection, computerSelection){
+    if (playerSelection === computerSelection)
+
+    }
+
+}
+
+let sayTie = () => console.log("Round is a Tie");
+let sayWin = () => console.log("Round is a win");
+let sayLose = () => console.log("Round is a loss");
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 function playRound(playerSelection, computerSelection) {
     // your code here!
@@ -84,3 +117,4 @@ function playRound(playerSelection, computerSelection) {
 
 
 game();
+*/
